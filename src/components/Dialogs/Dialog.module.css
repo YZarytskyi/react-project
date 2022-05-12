@@ -1,0 +1,6 @@
+.dialog {
+  display: grid;
+  
+  grid-template-areas: 'u m';
+  grid-template-columns: 1fr 3fr;
+}
