@@ -1,8 +1,8 @@
 import "./App.css";
 import Header from "../components/Header/Header";
 import SideBar from "../components/SideBar/SideBar";
-import Profile from "../components/Profile/Profile";
-import Dialog from "../components/Dialogs/Dialog";
+import Profile from "../components/Content/Profile/Profile";
+import Dialog from "../components/Content/Dialogs/Dialog";
 import { Route, Routes } from "react-router-dom";
 
 const App = (props) => {
@@ -17,17 +17,18 @@ const App = (props) => {
             element={
               <Profile
                 profilePage={props.state.profilePage}
-                addPost={props.addPost}
-                updateNewPostText={props.updateNewPostText}
+                dispatch={props.dispatch}
               />
             }
           />
           <Route
             path="/dialogs"
-            element={<Dialog 
-            dialogsPage={props.state.dialogsPage}
-            addMessage={props.addMessage}
-            updateNewMessageText={props.updateNewMessageText} />}
+            element={
+              <Dialog
+                dialogsPage={props.state.dialogsPage}
+                dispatch={props.dispatch}
+              />
+            }
           />
         </Routes>
       </div>
