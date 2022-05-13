@@ -1,25 +1,38 @@
 import "./App.css";
 import Header from "../components/Header/Header";
-import NavBar from "../components/NavBar/NavBar";
+import SideBar from "../components/SideBar/SideBar";
 import Profile from "../components/Profile/Profile";
 import Dialog from "../components/Dialogs/Dialog";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 
-const App = ((props) => {
+const App = (props) => {
   return (
-    <BrowserRouter>
-      <div className="app-wrapper">
-        <Header />
-        <NavBar />
-        <div className="app-wrapper-content">
-          <Routes>
-            <Route path="/profile" element={<Profile posts={props.posts}/>} />
-            <Route path="/dialogs" element={<Dialog messages={props.messages} dialogs={props.dialogs}/>} />
-          </Routes>
-        </div>
+    <div className="app-wrapper">
+      <Header />
+      <SideBar state={props.state.dialogsPage} />
+      <div className="app-wrapper-content">
+        <Routes>
+          <Route
+            path="/profile"
+            element={
+              <Profile
+                profilePage={props.state.profilePage}
+                addPost={props.addPost}
+                updateNewPostText={props.updateNewPostText}
+              />
+            }
+          />
+          <Route
+            path="/dialogs"
+            element={<Dialog 
+            dialogsPage={props.state.dialogsPage}
+            addMessage={props.addMessage}
+            updateNewMessageText={props.updateNewMessageText} />}
+          />
+        </Routes>
       </div>
-    </BrowserRouter>
+    </div>
   );
-})
+};
 
 export default App;

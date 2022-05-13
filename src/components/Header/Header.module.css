@@ -3,5 +3,7 @@
   background-color: rgb(10, 26, 36);
 }
 .header img {
+  padding-left: 20px;
+  padding-top: 10px;
   width: 50px;
 }

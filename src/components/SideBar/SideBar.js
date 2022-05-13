@@ -1,10 +1,12 @@
 import React from "react";
-import classes from "./NavBar.module.css";
+import classes from "./SideBar.module.css";
 import {NavLink} from 'react-router-dom'
+import Friends from "./Friends/Friends";
 
-const NavBar = () => {
+const SideBar = (props) => {
   return (
-    <nav className={classes.nav}>
+    <div className={classes.sidebar}>
+    <nav>
       <div className={classes.item}>
         <NavLink to="/profile" className={ navData => navData.isActive ? classes.active : classes.item }>Profile</NavLink>
       </div>
@@ -18,7 +20,11 @@ const NavBar = () => {
         <a>Music</a>
       </div>
     </nav>
+    <div>
+      <Friends users={props.state.users}/>
+    </div>
+    </div>
   );
 };
 
-export default NavBar;
+export default SideBar;
