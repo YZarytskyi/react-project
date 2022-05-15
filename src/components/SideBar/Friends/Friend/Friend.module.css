@@ -1,9 +1,19 @@
 .friend {
-  font-size: 13px;
+  display: table-cell;
+  font-size: 15px;
+  padding: 5px;
+  text-align: center;
 }
 .friend img {
-  width: 20px;
-  height: 20px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 30px;
+  height: 25%;
   border-radius: 30px;
+  padding: 4px;
 }
-
+.navLink {
+  text-decoration: none;
+  color: white;
+}

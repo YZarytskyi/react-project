@@ -2,7 +2,7 @@
   font-family: Segoe UI Historic, Segoe UI, Helvetica, Arial, sans-serif;
   margin: 0 auto;
   display: grid;
-  width: 1300px;
+  width: 90%;
 
   grid-template-areas:
     "h h"

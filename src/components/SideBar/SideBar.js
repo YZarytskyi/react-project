@@ -1,7 +1,7 @@
 import React from "react";
 import classes from "./SideBar.module.css";
 import {NavLink} from 'react-router-dom'
-import Friends from "./Friends/Friends";
+import FriendsContainer from "./Friends/Friends-Container";
 
 const SideBar = (props) => {
   return (
@@ -14,14 +14,14 @@ const SideBar = (props) => {
         <NavLink to="/dialogs" className={ navData => navData.isActive ? classes.active : classes.item }>Messages</NavLink>
       </div>
       <div className={classes.item}>
-        <a>News</a>
+        <NavLink to="/news" className={ navData => navData.isActive ? classes.active : classes.item }>News</NavLink>
       </div>
       <div className={classes.item}>
-        <a>Music</a>
+      <NavLink to="/music" className={ navData => navData.isActive ? classes.active : classes.item }>Music</NavLink>
       </div>
     </nav>
     <div>
-      <Friends users={props.state.users}/>
+      <FriendsContainer />
     </div>
     </div>
   );

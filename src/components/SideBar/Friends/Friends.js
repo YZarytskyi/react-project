@@ -9,8 +9,8 @@ let friends = props.users.map(friend => {
 
   return (
     <div className={classes.friends}>
-      <h4>Friends</h4>
-      <div>
+      <h4 id={classes.friendsH}>Friends</h4>
+      <div id={classes.table}>
         {friends}
       </div>
     </div>

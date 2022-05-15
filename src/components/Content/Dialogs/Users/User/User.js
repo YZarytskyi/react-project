@@ -2,7 +2,7 @@ import { NavLink } from "react-router-dom";
 import classes from "./User.module.css";
 
 const User = (props) => {
-  let path = "/dialogs/" + props.id;
+  let path = '/dialogs/' + props.id;
   return (
     <nav className={classes.user}>
       <div>

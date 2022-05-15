@@ -3,7 +3,7 @@ import classes from "./Users.module.css";
 
 const Users = (props) => {
   
-  let dialogsElements = props.dialogs.map((user) => {
+  let dialogsElements = props.users.map((user) => {
     return (<User name={user.name} id={user.id} />)
   });
 

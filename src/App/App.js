@@ -1,35 +1,20 @@
 import "./App.css";
 import Header from "../components/Header/Header";
-import SideBar from "../components/SideBar/SideBar";
 import Profile from "../components/Content/Profile/Profile";
 import Dialog from "../components/Content/Dialogs/Dialog";
 import { Route, Routes } from "react-router-dom";
+import SideBar from "../components/SideBar/SideBar";
+
 
 const App = (props) => {
   return (
     <div className="app-wrapper">
       <Header />
-      <SideBar state={props.state.dialogsPage} />
+      <SideBar />
       <div className="app-wrapper-content">
         <Routes>
-          <Route
-            path="/profile"
-            element={
-              <Profile
-                profilePage={props.state.profilePage}
-                dispatch={props.dispatch}
-              />
-            }
-          />
-          <Route
-            path="/dialogs"
-            element={
-              <Dialog
-                dialogsPage={props.state.dialogsPage}
-                dispatch={props.dispatch}
-              />
-            }
-          />
+          <Route path="/profile" element={<Profile />} />
+          <Route path="/dialogs" element={<Dialog />} />
         </Routes>
       </div>
     </div>
