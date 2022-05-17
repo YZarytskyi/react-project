@@ -11,16 +11,22 @@
   -moz-box-shadow: 0px 0px 9px 3px rgba(10, 26, 36, 0.25);
   box-shadow: 0px 0px 10px 7px rgba(10, 26, 36, 0.25);
 }
-.item {
+.items {
   display: flex;
   color: rgb(10, 26, 36);
   text-decoration: none;
+  border-radius: 5px;
 }
 
-.item img {
+.items img {
   margin-right: 10px;
   width: 15px;
   height: 15px;
+}
+
+.item {
+  text-decoration: none;
+  color: rgb(10, 26, 36);
 }
 
 .active {

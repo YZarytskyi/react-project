@@ -12,32 +12,32 @@ const SideBar = (props) => {
   return (
     <div className={style.sidebar}>
     <nav>
-      <div className={style.item}>
+      <div className={style.items}>
       <div>
         <img src={Profile} alt="" />
       </div>
         <NavLink to="/profile" className={ navData => navData.isActive ? style.active : style.item }>Profile</NavLink>
       </div>
-      <div className={style.item}>
+      <div className={style.items}>
       <div>
         <img src={Users} alt="" />
       </div>
         <NavLink to="/users" className={ navData => navData.isActive ? style.active : style.item }>Users 
         </NavLink>
       </div>
-      <div className={style.item}>
+      <div className={style.items}>
       <div>
         <img src={Message} alt="" />
       </div>
         <NavLink to="/dialogs" className={ navData => navData.isActive ? style.active : style.item }>Messages</NavLink>
       </div>
-      <div className={style.item}>
+      <div className={style.items}>
       <div>
         <img src={News} alt="" />
       </div>
         <NavLink to="/news" className={ navData => navData.isActive ? style.active : style.item }>News</NavLink>
       </div>
-      <div className={style.item}>
+      <div className={style.items}>
       <div>
         <img src={Music} alt="" />
       </div>

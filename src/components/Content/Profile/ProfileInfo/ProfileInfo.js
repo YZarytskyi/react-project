@@ -1,18 +1,21 @@
 import React from "react";
+import Preloader from "../../../Common/Preloader/Preloader";
 import style from "./ProfileInfo.module.css";
 
-const ProfileInfo = () => {
+const ProfileInfo = (props) => {
+
+if (!props.profile) return <Preloader />
+
   return (
     <div>
     <div>
       <img
         id={style.avatar}
-        src="https://static7.depositphotos.com/1008939/726/i/450/depositphotos_7264018-stock-photo-programmer.jpg"
-        alt=""
+        src={props.profile.photos.large} alt=""
       />
       </div>
       <div className={style.description}>
-      Description
+      {props.profile.aboutMe}
       </div>
     </div>
   );
