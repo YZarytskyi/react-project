@@ -1,0 +1,45 @@
+.findUsers {
+  margin-top: 18px;
+  margin-left: 35px;
+  margin-right: 250px;
+  font-size: 20px;
+}
+
+.findUsers img {
+  width: 65px;
+  height: 65px;
+  border-radius: 35px;
+}
+
+.user {
+  display: grid;
+  grid-template-columns: 1fr 9fr;
+}
+
+#userPhoto {
+  margin: 10px;
+}
+
+#userInfo {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin: 10px;
+  border-radius: 10px;
+  border: 1px solid black;
+  padding: 10px;
+}
+
+.selectedPage {
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.pageCounter {
+  cursor: pointer;
+  padding: 2px;
+}
+
+.pages {
+  text-align: center;
+}
+

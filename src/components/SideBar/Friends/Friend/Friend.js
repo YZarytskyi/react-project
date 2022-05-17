@@ -1,13 +1,13 @@
 import { NavLink } from "react-router-dom";
-import classes from "./Friend.module.css";
+import style from "./Friend.module.css";
 
 const Friend = (props) => {
   return (
-    <div className={classes.friend}>
+    <div className={style.friend}>
       <nav>
-      <NavLink to="/dialogs" className={classes.navLink}>
+      <NavLink to="/dialogs" className={style.navLink}>
         <div>
-          <img src="https://lmusic.kz/images/artist_cover/ava-max.jpg" alt="" />
+          <img src="http://icphs20152.b-cdn.net/wp-content/uploads/2021/02/Lea-Elui-Ginet.jpg" alt="" />
         </div>
         <div>{props.name}</div>
         </NavLink>

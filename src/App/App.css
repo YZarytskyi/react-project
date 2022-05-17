@@ -1,10 +1,6 @@
 .app-wrapper {
-  font-family: Segoe UI Historic, Segoe UI, Helvetica, Arial, sans-serif;
-  margin: 0 auto;
-  display: grid;
-  width: 90%;
-
-  grid-template-areas:
+   display: grid;
+   grid-template-areas:
     "h h"
     "n c";
   grid-template-rows: 60px 1fr;
@@ -13,7 +9,6 @@
 
 .app-wrapper-content {
   grid-area: c;
-  background-color: rgb(255, 255, 255);
   font-size: 25px;
 }
 

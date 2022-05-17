@@ -1,11 +1,11 @@
 import React from "react";
-import classes from "./MyPosts.module.css";
+import style from "./MyPosts.module.css";
 import Post from "./Post/Post";
 
 
 const MyPosts = ((props) => {
   
-  let postsElements = props.posts.map((post) => <Post message={post.message} likeCount={post.likeCount} />);
+  let postsElements = props.posts.map((post) => <Post message={post.message} likeCount={post.likeCount} key={post.id} />);
   
   let onPostChange = (e) => {
     let text = e.target.value;
@@ -17,7 +17,7 @@ const MyPosts = ((props) => {
   }
 
   return (
-    <div className={classes.postBlock}> 
+    <div className={style.postBlock}> 
       <h3>My posts</h3>
       <div>
         <textarea placeholder="Enter your post" onChange={onPostChange} value={props.newPostText} />
@@ -25,7 +25,7 @@ const MyPosts = ((props) => {
       <div>
         <button onClick={addPost}>Add Post</button>
       </div>
-      <div className={classes.posts}>{postsElements}</div>
+      <div className={style.posts}>{postsElements}</div>
     </div>
   );
 });

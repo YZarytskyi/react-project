@@ -1,9 +1,13 @@
 .header {
   grid-area: h;
   background-color: rgb(10, 26, 36);
+  position: relative;
+  -webkit-box-shadow: 0px 0px 9px 3px rgba(10, 26, 36, 0.25);
+  -moz-box-shadow: 0px 0px 9px 3px rgba(10, 26, 36, 0.25);
+  box-shadow: 0px 0px 9px 7px rgba(10, 26, 36, 0.25);
 }
 .header img {
-  padding-left: 20px;
-  padding-top: 10px;
+  margin-left: 170px;
+  margin-top: 10px;
   width: 45px;
 }

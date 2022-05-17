@@ -1,10 +1,15 @@
 import React from "react";
-import classes from './Header.module.css'
+import { NavLink } from "react-router-dom";
+import style from "./Header.module.css";
 
 function Header(props) {
   return (
-    <header className={classes.header}>
-      <img src="logoo.png" alt="" />
+    <header className={style.header}>
+    <nav>
+      <NavLink to="/profile">
+        <img src="logoo.png" alt="" />
+      </NavLink>
+      </nav>
     </header>
   );
 }

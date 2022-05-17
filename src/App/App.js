@@ -4,6 +4,7 @@ import Profile from "../components/Content/Profile/Profile";
 import Dialog from "../components/Content/Dialogs/Dialog";
 import { Route, Routes } from "react-router-dom";
 import SideBar from "../components/SideBar/SideBar";
+import FindUsersContainer from "../components/Content/FindUsers/FindUsers-Container";
 
 
 const App = (props) => {
@@ -15,6 +16,7 @@ const App = (props) => {
         <Routes>
           <Route path="/profile" element={<Profile />} />
           <Route path="/dialogs" element={<Dialog />} />
+          <Route path="/users" element={<FindUsersContainer />} />
         </Routes>
       </div>
     </div>

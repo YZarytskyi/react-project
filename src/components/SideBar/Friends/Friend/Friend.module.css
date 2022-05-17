@@ -1,7 +1,7 @@
 .friend {
   display: table-cell;
   font-size: 15px;
-  padding: 5px;
+  padding: 3px;
   text-align: center;
 }
 .friend img {
@@ -15,5 +15,5 @@
 }
 .navLink {
   text-decoration: none;
-  color: white;
+  color: black;
 }

@@ -1,8 +1,6 @@
 .postBlock {
   grid-area: c;
-  background-color: rgb(255, 255, 255);
   font-size: 25px;
-  padding: 10px;
 }
 .posts {
   margin-top: 10px;

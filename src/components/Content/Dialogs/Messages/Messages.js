@@ -1,5 +1,5 @@
 import Message from "./Message/Message";
-import classes from "./Messages.module.css";
+import style from "./Messages.module.css";
 import React from "react";
 
 const Messages = (props) => {
@@ -19,7 +19,7 @@ const Messages = (props) => {
 
   return (
     <div>
-      <div className={classes.messages}>{messagesElements}</div>
+      <div className={style.messages}>{messagesElements}</div>
       <div>
         <textarea placeholder="Enter your message" onChange={onMessageChange} value={props.dialogsPage.newMessageText} />
       </div>

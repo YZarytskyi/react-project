@@ -1,9 +1,9 @@
 import React from "react";
-import classes from './Post.module.css'
+import style from './Post.module.css'
 
 const Post = (props) => {
   return (
-    <div className={classes.post}>
+    <div className={style.post}>
         <img
           src="https://lastfm.freetls.fastly.net/i/u/770x0/488f54a23f117b517cfbe769ff55a413.jpg"
           alt=""
