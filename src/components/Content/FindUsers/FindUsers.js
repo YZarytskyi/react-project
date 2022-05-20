@@ -27,11 +27,13 @@ const FindUsers = (props) => {
               </NavLink>
             </div>
             <div>
-              <button
-                onClick={() => {
-                  props.toggleFollow(user.id);
-                }}
-              >
+              <button disabled={props.followingInProgress.some(id => id === user.id)} onClick={() => {
+                user.followed
+                ? 
+                props.unfollow(user.id)
+                : 
+                props.follow(user.id)
+                }}>
                 {user.followed ? "Unfollow" : "Follow"}
               </button>
             </div>

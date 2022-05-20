@@ -1,22 +1,26 @@
 import "./App.css";
-import Header from "../components/Header/Header";
-import Dialog from "../components/Content/Dialogs/Dialog";
 import { Route, Routes } from "react-router-dom";
 import SideBar from "../components/SideBar/SideBar";
 import FindUsersContainer from "../components/Content/FindUsers/FindUsers-Container";
 import ProfileContainer from "../components/Content/Profile/Profile-Container";
+import HeaderContainer from "../components/Header/Header-Container";
+import LoginPage from "../components/Login/Login";
+import DialogsContainer from "../components/Content/Dialogs/Dialogs-Container";
 
 
 const App = (props) => {
   return (
     <div className="app-wrapper">
-      <Header />
+      <HeaderContainer />
       <SideBar />
       <div className="app-wrapper-content">
         <Routes>
+          <Route path="/*" element={<ProfileContainer />} />
+          <Route path="/profile/:userId" element={<ProfileContainer />} />
           <Route path="/profile/*" element={<ProfileContainer />} />
-          <Route path="/dialogs/*" element={<Dialog />} />
+          <Route path="/dialogs/*" element={<DialogsContainer />} />
           <Route path="/users/*" element={<FindUsersContainer />} />
+          <Route path="/login/*" element={<LoginPage />} />
         </Routes>
       </div>
     </div>

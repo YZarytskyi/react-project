@@ -1,6 +1,6 @@
 import React from "react";
 import style from "./SideBar.module.css";
-import {NavLink} from 'react-router-dom';
+import { NavLink } from "react-router-dom";
 import FriendsContainer from "./Friends/Friends-Container";
 import Message from "../../assets/images/Message.png";
 import Profile from "../../assets/images/Profile.png";
@@ -11,42 +11,56 @@ import Users from "../../assets/images/Users.png";
 const SideBar = (props) => {
   return (
     <div className={style.sidebar}>
-    <nav>
-      <div className={style.items}>
-      <div>
-        <img src={Profile} alt="" />
-      </div>
-        <NavLink to="/profile" className={ navData => navData.isActive ? style.active : style.item }>Profile</NavLink>
-      </div>
-      <div className={style.items}>
-      <div>
-        <img src={Users} alt="" />
-      </div>
-        <NavLink to="/users" className={ navData => navData.isActive ? style.active : style.item }>Users 
+      <nav>
+          <NavLink to="/profile" className={(navData) => navData.isActive ? style.active : style.item}>
+          <div className={style.items}>
+            <span>
+            <img src={Profile} alt="" />
+            </span>
+            <span>Profile</span>
+            </div>
+          </NavLink>
+
+        <NavLink to="/users" className={(navData) => navData.isActive ? style.active : style.item}>
+         <div className={style.items}>
+          <span>
+          <img src={Users} alt="" />
+          </span>
+            <span>Users</span>
+         </div>
         </NavLink>
-      </div>
-      <div className={style.items}>
+
+        <NavLink to="/dialogs" className={(navData) => navData.isActive ? style.active : style.item}>
+         <div className={style.items}>
+          <span>
+            <img src={Message} alt="" />
+          </span>
+          <span>Messages</span>
+         </div>
+        </NavLink>
+
+        <NavLink to="/news" className={(navData) => navData.isActive ? style.active : style.item}>
+         <div className={style.items}>
+          <span>
+            <img src={News} alt="" />
+          </span>
+          <span>News</span>
+         </div>
+        </NavLink>
+
+        <NavLink to="/music" className={(navData) => navData.isActive ? style.active : style.item}>
+         <div className={style.items}>
+          <span>
+            <img src={Music} alt="" />
+          </span>
+          <span>Music</span>
+         </div>
+        </NavLink>
+
+      </nav>
       <div>
-        <img src={Message} alt="" />
+        <FriendsContainer />
       </div>
-        <NavLink to="/dialogs" className={ navData => navData.isActive ? style.active : style.item }>Messages</NavLink>
-      </div>
-      <div className={style.items}>
-      <div>
-        <img src={News} alt="" />
-      </div>
-        <NavLink to="/news" className={ navData => navData.isActive ? style.active : style.item }>News</NavLink>
-      </div>
-      <div className={style.items}>
-      <div>
-        <img src={Music} alt="" />
-      </div>
-      <NavLink to="/music" className={ navData => navData.isActive ? style.active : style.item }>Music</NavLink>
-      </div>
-    </nav>
-    <div>
-      <FriendsContainer />
-    </div>
     </div>
   );
 };

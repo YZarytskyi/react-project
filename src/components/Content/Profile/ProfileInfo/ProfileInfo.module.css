@@ -1,7 +1,25 @@
-.description {
-
+.profileInfo {
+  display: flex;
 }
 #avatar {
   width: 200px;
   height: 180px;
+}
+
+.status {
+  font-size: 20px;
+  margin-left: 25px;
+  margin-right: 30px;
+}
+
+.status span {
+  padding: 3px 10px 5px;
+}
+
+.status span:hover {
+  border-radius: 7px;
+  background-color: rgb(212, 217, 221);
+}
+
+.input {
 }
