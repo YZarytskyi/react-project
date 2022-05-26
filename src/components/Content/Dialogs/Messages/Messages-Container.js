@@ -1,5 +1,5 @@
 import { connect } from "react-redux";
-import { onMessageChangeActionCreator, sendMessageActionCreator } from "../../../../Redux/Reducers/dialogs-reducer";
+import { sendMessageActionCreator } from "../../../../Redux/Reducers/dialogs-reducer";
 import Messages from "./Messages";
 
 const mapStateToProps = (state) => {
@@ -10,8 +10,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    onMessageChange: (text) => {dispatch(onMessageChangeActionCreator(text))},
-    sendMessage: () => {dispatch(sendMessageActionCreator())}
+    sendMessage: (newMessageText) => {dispatch(sendMessageActionCreator(newMessageText))}
   }
 }
  

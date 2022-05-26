@@ -1,18 +1,9 @@
-import style from "./FindUsers.module.css";
+import style from "./Users.module.css";
 import userPhoto from "../../../assets/images/userPhoto.jpg";
 import { NavLink } from "react-router-dom";
+import Paginator from "./Paginator";
 
-const FindUsers = (props) => {
-
-  let pagesCount = Math.ceil(
-    props.totalUsersCount / props.pageSize
-  );
-
-  let pages = [];
-  for (let i = 1; i <= pagesCount; i++) {
-    pages.push(i);
-  }
-
+const Users = (props) => {
   return (
     <div className={style.findUsers}>
       {props.users.map((user) => (
@@ -50,26 +41,10 @@ const FindUsers = (props) => {
           </div>
         </div>
       ))}
-      <div className={style.pages}>
-        {pages.map((page) => {
-          return (
-            <span
-              className={
-                props.currentPage === page
-                  ? style.selectedPage
-                  : style.pageCounter
-              }
-              onClick={() => {
-                props.onPageChange(page);
-              }}
-            >
-              {page}
-            </span>
-          );
-        })}
-      </div>
+        <Paginator totalItemsCount={props.totalItemsCount} pageSize={props.pageSize} 
+        onPageChange={props.onPageChange} currentPage={props.currentPage} />
     </div>
   );
 };
 
-export default FindUsers;
+export default Users;

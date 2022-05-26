@@ -15,11 +15,12 @@
 .items {
   display: flex;
   color: rgb(10, 26, 36);
-  border-radius: 2px;
+  border-radius: 4px;
   padding-bottom: 2px;
 }
 
 .items img {
+  display: inline;
   margin-left: 15px;
   margin-right: 10px;
   width: 15px;
@@ -40,3 +41,4 @@
 .items:hover {
   background: #d5dee2;
  } 
+

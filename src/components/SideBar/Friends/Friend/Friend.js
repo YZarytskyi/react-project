@@ -1,5 +1,6 @@
 import { NavLink } from "react-router-dom";
 import style from "./Friend.module.css";
+import UserPhoto from "../../../../assets/images/userPhoto.jpg"
 
 const Friend = (props) => {
   return (
@@ -7,7 +8,7 @@ const Friend = (props) => {
       <nav>
       <NavLink to="/dialogs" className={style.navLink}>
         <div>
-          <img src="http://icphs20152.b-cdn.net/wp-content/uploads/2021/02/Lea-Elui-Ginet.jpg" alt="" />
+          <img src={UserPhoto} alt="" />
         </div>
         <div>{props.name}</div>
         </NavLink>

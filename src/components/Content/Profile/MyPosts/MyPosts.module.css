@@ -1,8 +1,15 @@
 .postBlock {
-  grid-area: c;
-  font-size: 25px;
+  font-size: 20px;
 }
+
+.postBlock img {
+  display: inline;
+}
+
 .posts {
   margin-top: 10px;
 }
 
+form {
+  font-size: 15px;
+}

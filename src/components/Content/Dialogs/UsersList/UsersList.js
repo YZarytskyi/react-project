@@ -1,5 +1,5 @@
 import User from "./User/User";
-import style from "./Users.module.css";
+import style from "./UsersList.module.css";
 
 const Users = (props) => {
   

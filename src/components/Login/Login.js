@@ -1,9 +1,40 @@
-const Login = (props) => {
-return (
-  <div>
-    LOGIN
-  </div>
-)
+import React from "react";
+import style from "./Login.module.css";
+import { connect } from "react-redux";
+import { login } from "../../Redux/Reducers/auth-reducer"
+import { Navigate } from "react-router-dom";
+import { LoginForm } from "../Common/Forms/LoginForm/LoginForm";
+
+const LoginPage = (props) => {
+
+const onSubmit = (data, setError) => {
+  props.login(data, setError)
 }
 
-export default Login;
+if(props.isAuth) {
+  return <Navigate to="/profile" />
+}
+  return (
+    <div className={style.login}>
+      <h2>Log In</h2>
+      <hr />
+      <LoginForm onSubmit={onSubmit} />
+      {props.captcha
+      ? <div className={style.captcha}>
+        <img src={props.captcha} alt="captcha" />
+        <form>          
+        <input/>
+        <button type="submit">Ok</button>
+        </form>
+      </div>
+      : ""}
+    </div>
+  );
+};
+
+const mapStateToProps = (state) => ({
+  isAuth: state.auth.isAuth,
+  captcha: state.auth.captcha,
+})
+
+export default connect(mapStateToProps,{login})(LoginPage);

@@ -1,59 +1,22 @@
 import { usersAPI } from "../../API/api";
 
 const TOGGLE_FOLLOW = "TOGGLE-FOLLOW";
-const SHOW_MORE = "SHOW-MORE";
 const SET_USERS = "SET-USERS";
 const SET_CURRENT_PAGE = "SET-CURRENT-PAGE";
+const SET_TOTAL_USERS_COUNT = "SET-TOTAL-USERS-COUNT";
 const TOGGLE_IS_FETCHING = "TOGGLE-IS-FETCHING";
 const TOGGLE_IS_FOLLOWING_PROGRESS = "TOGGLE-IS-FOLLOWING-PROGRESS";
 
 let initialState = {
-  users: [
-    // {
-    //   id: 1,
-    //   photoURL:
-    //     "https://media2.telemetr.me/file/media-tm/avatars/095e9358b3deb7d6d029e9790047c150.jpg",
-    //   name: "Dyma",
-    //   status: "I like React!",
-    //   location: { country: "Ukraine", city: "Kyiv" },
-    //   followed: false,
-    // },
-    // {
-    //   id: 2,
-    //   photoURL:
-    //     "https://media2.telemetr.me/file/media-tm/avatars/095e9358b3deb7d6d029e9790047c150.jpg",
-    //   name: "Yura",
-    //   status: "Cool programmer",
-    //   location: { country: "Ukraine", city: "Kyiv" },
-    //   followed: false,
-    // },
-    // {
-    //   id: 3,
-    //   photoURL:
-    //     "https://media2.telemetr.me/file/media-tm/avatars/095e9358b3deb7d6d029e9790047c150.jpg",
-    //   name: "Andrey",
-    //   status: "Footballer",
-    //   location: { country: "Belarus", city: "Minsk" },
-    //   followed: false,
-    // },
-    // {
-    //   id: 4,
-    //   photoURL:
-    //     "https://media2.telemetr.me/file/media-tm/avatars/095e9358b3deb7d6d029e9790047c150.jpg",
-    //   name: "Vova",
-    //   status: "Love UK",
-    //   location: { country: "UK", city: "London" },
-    //   followed: false,
-    // },
-  ],
+  users: [],
   pageSize: 5,
-  totalUsersCount: 30,
+  totalItemsCount: 0,
   currentPage: 1,
   isFetching: false,
   followingInProgress: [],
 };
 
-const findUsersReducer = (state = initialState, action) => {
+const UsersReducer = (state = initialState, action) => {
   switch (action.type) {
     case TOGGLE_FOLLOW:
       return {
@@ -66,8 +29,10 @@ const findUsersReducer = (state = initialState, action) => {
       };
     case SET_USERS:
       return { ...state, users: action.users };
-    case SHOW_MORE:
-      return {};
+    case SET_TOTAL_USERS_COUNT:
+      return {
+        ...state, totalItemsCount: action.totalItemsCount
+      };
     case SET_CURRENT_PAGE:
       return {
         ...state,
@@ -87,10 +52,11 @@ const findUsersReducer = (state = initialState, action) => {
   }
 };
 
+//ACTION CREATORS
 export const toggleFollow = (userId) => ({ type: TOGGLE_FOLLOW, userId });
-export const showMore = () => ({ type: SHOW_MORE });
 export const setUsers = (users) => ({ type: SET_USERS, users });
 export const setCurrentPage = (currentPage) => ({ type: SET_CURRENT_PAGE, currentPage,});
+export const setTotalItemsCount = (totalItemsCount) => ({ type: SET_TOTAL_USERS_COUNT, totalItemsCount,});
 export const toggleIsFetching = (isFetching) => ({ type: TOGGLE_IS_FETCHING, isFetching,});
 export const toggleIsFollowingProgress = (isFetching, userId) => ({
   type: TOGGLE_IS_FOLLOWING_PROGRESS,
@@ -98,39 +64,38 @@ export const toggleIsFollowingProgress = (isFetching, userId) => ({
   userId,
 });
 
-export const getUsers = (currentPage, pageSize) => {
-  return (dispatch) => {
+//THUNKS
+export const requestUsers = (page, pageSize) => {
+  return async (dispatch) => {
     dispatch(toggleIsFetching(true));
-    usersAPI.getUsers(currentPage, pageSize).then((data) => {
+    dispatch(setCurrentPage(page));
+    let data = await usersAPI.getUsers(page, pageSize)
       dispatch(toggleIsFetching(false));
       dispatch(setUsers(data.items));
-      dispatch(setCurrentPage(currentPage));
-    });
+      dispatch(setTotalItemsCount(data.totalCount));
   };
 };
 
 export const unfollow = (userId) => {
-  return (dispatch) => {
+  return async (dispatch) => {
     dispatch(toggleIsFollowingProgress(true, userId));
-    usersAPI.getUnfollow(userId).then((data) => {
+    let data = await usersAPI.getUnfollow(userId)
       if (data.resultCode === 0) {
         dispatch(toggleFollow(userId));
       }
       dispatch(toggleIsFollowingProgress(false, userId));
-    });
   };
 };
 
 export const follow = (userId) => {
-  return (dispatch) => {
+  return async (dispatch) => {
     dispatch(toggleIsFollowingProgress(true, userId));
-      usersAPI.getFollow(userId).then((data) => {
+    let data = await usersAPI.getFollow(userId)
         if (data.resultCode === 0) {
           dispatch(toggleFollow(userId));
         }
         dispatch(toggleIsFollowingProgress(false, userId));
-      });
     };
   };
 
-export default findUsersReducer;
+export default UsersReducer;

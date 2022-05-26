@@ -1,5 +1,5 @@
 import { connect } from "react-redux";
-import Users from "./Users";
+import Users from "./UsersList";
 
 
 const mapStateToProps = (state) => {
@@ -8,6 +8,6 @@ const mapStateToProps = (state) => {
   }
 }
 
-const UsersContainer = connect(mapStateToProps)(Users);
+const UsersListContainer = connect(mapStateToProps)(Users);
 
-export default UsersContainer;
+export default UsersListContainer;

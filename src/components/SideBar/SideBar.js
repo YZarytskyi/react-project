@@ -7,12 +7,14 @@ import Profile from "../../assets/images/Profile.png";
 import Music from "../../assets/images/Music.png";
 import News from "../../assets/images/News.png";
 import Users from "../../assets/images/Users.png";
+import { connect } from "react-redux";
 
 const SideBar = (props) => {
   return (
     <div className={style.sidebar}>
       <nav>
-          <NavLink to="/profile" className={(navData) => navData.isActive ? style.active : style.item}>
+          <NavLink to={`/profile/${props.authorizedUserId}`} className={(navData) => navData.isActive 
+          ? style.active : style.item}>
           <div className={style.items}>
             <span>
             <img src={Profile} alt="" />
@@ -65,4 +67,8 @@ const SideBar = (props) => {
   );
 };
 
-export default SideBar;
+const mapStateToProps = (state) => {
+  return { authorizedUserId: state.auth.userId }
+}
+
+export default connect(mapStateToProps)(SideBar);
