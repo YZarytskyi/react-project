@@ -3,18 +3,25 @@ display: flex;
 }
 
 .profileInfo hr {
-  width: 100%;
+  margin-left: 25px;
   width: 660px;
   }
 
 .avatar {
   width: 200px;
   height: 180px;
+  margin-bottom: 33px;
+}
+
+.avatar img {
+  width: auto;
+  height: 100%;
+  margin: 0 auto;
 }
 
 .status {
-  font-size: 17px;
-  margin: 2px 30px 15px 29px;
+  font-size: 16px;
+  margin: 2px 30px 5px 29px;
 }
 
 .status span {
@@ -32,6 +39,6 @@ display: flex;
 }
 
 .profileName {
-  font-size: 27px;
+  font-size: 22px;
   margin-left: 35px;
 }

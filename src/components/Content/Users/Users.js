@@ -6,7 +6,7 @@ import Paginator from "./Paginator";
 const Users = (props) => {
   return (
     <div className={style.findUsers}>
-      {props.users.map((user) => (
+      {props.users.map(user => (
         <div key={user.id} className={style.user}>
           <div id={style.userPhoto}>
             <div>

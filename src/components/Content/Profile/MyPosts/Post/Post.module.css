@@ -1,6 +1,62 @@
-.post img {
-  width: 40px;
-  height: 40px;
-  border-radius: 30px;
-  display: inline;
+.post {
+  display: flex;
+  border: 1px solid black;
+  border-radius: 5px;
+  padding: 10px;
+  margin-top: 5px;
+  width: 500px;
+  line-height: 20px;
+}
+
+.photo {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  margin: 7px 12px 0px 0px;
+}
+
+.photo img {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+}
+
+.fullName {
+  font-size: 15px;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.like {
+  font-weight: 400;
+  margin-top: 7px;
+}
+
+.like button {
+  font-weight: 750;
+  width: 60px;
+  color: black;
+  padding: 3px 6px;
+  margin-right: 3px;
+  text-decoration: none;
+  border-radius: 5px;
+  background: rgb(255, 255, 255);
+  transition: 0.2s;
+  cursor: pointer;
+  border: 1.5px solid black;
+}   
+
+.like button:hover { background: rgb(218, 212, 212); }
+
+.like button:active {
+  background: rgb(255, 255, 255);
+  box-shadow: 0 1px rgb(0, 0, 0) inset;
+}
+
+.like span {
+  vertical-align: middle;
+}
+
+.like .active {
+  font-weight: bold;
 }

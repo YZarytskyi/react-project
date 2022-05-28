@@ -1,9 +1,10 @@
 .postBlock {
-  font-size: 20px;
+  font-size: 15px;
 }
 
-.postBlock img {
-  display: inline;
+.postBlock h2 {
+  margin-top: 0px;
+  margin-bottom:10px;
 }
 
 .posts {

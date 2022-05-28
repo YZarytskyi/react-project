@@ -4,9 +4,10 @@ import style from "./MyPosts.module.css";
 import Post from "./Post/Post";
 
 const MyPosts = React.memo(props => {
-  debugger
-  let postsElements = props.posts.map((post) => (
-    <Post message={post.message} likeCount={post.likeCount} key={post.id} />
+  let postsElements = [...props.posts].reverse().map((post) => (
+    <Post message={post.message} likeCount={post.likeCount} key={post.id} id={post.id}
+    profile={props.profile} removeLike={props.removeLike} addLike={props.addLike} posts={props.posts}
+    />
   ));
 
   let addPost = (values) => {
@@ -15,7 +16,7 @@ const MyPosts = React.memo(props => {
 
   return (
     <div className={style.postBlock}>
-      <h3>My posts</h3>
+      <h2>My posts</h2>
       <AddPostForm onSubmit={addPost} />
       <div className={style.posts}>{postsElements}</div>
     </div>

@@ -10,5 +10,6 @@
 .app-wrapper-content {
   grid-area: c;
   font-size: 15px;
+  padding-bottom: 40px;
 }
 

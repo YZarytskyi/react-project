@@ -18,16 +18,7 @@ if(props.isAuth) {
     <div className={style.login}>
       <h2>Log In</h2>
       <hr />
-      <LoginForm onSubmit={onSubmit} />
-      {props.captcha
-      ? <div className={style.captcha}>
-        <img src={props.captcha} alt="captcha" />
-        <form>          
-        <input/>
-        <button type="submit">Ok</button>
-        </form>
-      </div>
-      : ""}
+      <LoginForm onSubmit={onSubmit} captcha={props.captcha} />
     </div>
   );
 };

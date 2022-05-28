@@ -19,7 +19,13 @@ export const LoginForm = (props) => {
         <p>{errors.password?.message}</p>
         <p>{errors.common?.message}</p>
         <p>{errors.captcha?.message}</p>
-        <input {...register("rememberMe")} type="checkbox"   /> remember me
+        <input {...register("rememberMe")} type="checkbox" /> remember me
+        {props.captcha
+        ? <div className={style.captcha}>
+          <img src={props.captcha} alt="captcha" />         
+          <input {...register("captcha")} />
+        </div>
+        : ""}
         <button type="submit" >Log in</button>
       </form>
   );
