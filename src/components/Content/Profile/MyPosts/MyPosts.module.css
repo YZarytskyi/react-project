@@ -1,16 +1,4 @@
-.postBlock {
-  font-size: 15px;
-}
-
-.postBlock h2 {
-  margin-top: 10px;
-  margin-bottom:10px;
-}
-
 .posts {
-  margin-top: 10px;
-}
-
-form {
   font-size: 15px;
+  margin-top: 10px;
 }

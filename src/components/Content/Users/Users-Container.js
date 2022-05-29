@@ -7,6 +7,7 @@ import Users from "./Users";
 import { withAuthRedirect } from "../../../HOC/withAuthRedirect";
 import { compose } from "redux";
 import { getCurrentPage, getFollow, getFollowingInProgress, getIsFetching, getPageSize, gettotalItemsCount, getUnfollow, getUsers } from "../../../Redux/Reducers/users-selectors";
+import Preloader from "../../Common/Preloader/Preloader";
 
 class UsersContainer extends React.Component {
 
@@ -21,7 +22,7 @@ class UsersContainer extends React.Component {
   render() {
     return (
       <>
-        {/* {this.props.isFetching ? <Preloader /> : null} */}
+        {this.props.isFetching ? <Preloader /> : null}
         <Users
           totalItemsCount={this.props.totalItemsCount}
           pageSize={this.props.pageSize}

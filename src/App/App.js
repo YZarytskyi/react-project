@@ -10,6 +10,7 @@ import { connect } from "react-redux";
 import { initializeApp } from "../Redux/Reducers/app-reducer";
 import Preloader from "../components/Common/Preloader/Preloader";
 import DialogsContainer from "../components/Content/Dialogs/Dialogs-Container";
+import News from "../components/Content/News/News"
 
 class App extends React.Component {
 
@@ -44,6 +45,7 @@ class App extends React.Component {
               <Route path="/dialogs/*" element={<DialogsContainer />} />
               <Route path="/users/*" element={<UsersContainer />} />
               <Route path="/login/*" element={<LoginPageContainer />} />
+              <Route path="/news/*" element={<News />} />
             </Routes>
         </div>
       </div>

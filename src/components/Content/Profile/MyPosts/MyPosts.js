@@ -1,5 +1,4 @@
 import React from "react";
-import { AddPostForm } from "../../../Common/Forms/AddPostForm/AddPostForm";
 import style from "./MyPosts.module.css";
 import Post from "./Post/Post";
 
@@ -10,16 +9,8 @@ const MyPosts = React.memo(props => {
     />
   ));
 
-  let addPost = (values) => {
-    props.addPost(values.newPostText);
-  };
-
   return (
-    <div className={style.postBlock}>
-      <h2>My posts</h2>
-      <AddPostForm onSubmit={addPost} />
       <div className={style.posts}>{postsElements}</div>
-    </div>
   );
 });
 

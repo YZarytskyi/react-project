@@ -15,8 +15,9 @@
 .items {
   display: flex;
   color: rgb(10, 26, 36);
-  border-radius: 4px;
-  padding-bottom: 2px;
+  border-radius: 9px;
+  padding-top: 2px;
+  padding-bottom: 4px;
 }
 
 .items img {
