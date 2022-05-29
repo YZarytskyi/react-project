@@ -5,14 +5,11 @@ import UsersContainer from "../components/Content/Users/Users-Container";
 import ProfileContainer from "../components/Content/Profile/Profile-Container";
 import HeaderContainer from "../components/Header/Header-Container";
 import LoginPageContainer from "../components/Login/Login";
-import React, { Suspense } from "react";
+import React from "react";
 import { connect } from "react-redux";
 import { initializeApp } from "../Redux/Reducers/app-reducer";
 import Preloader from "../components/Common/Preloader/Preloader";
-
-const DialogsContainer = React.lazy(() =>
-  import("../components/Content/Dialogs/Dialogs-Container")
-);
+import DialogsContainer from "../components/Content/Dialogs/Dialogs-Container";
 
 class App extends React.Component {
 
@@ -40,7 +37,6 @@ class App extends React.Component {
         <HeaderContainer />
         <SideBarContainer />
         <div className="app-wrapper-content">
-          <Suspense fallback={<Preloader />}>
             <Routes>
               <Route path="/*" element={<ProfileContainer />} />
               <Route path="/profile/:userId" element={<ProfileContainer />} />
@@ -49,7 +45,6 @@ class App extends React.Component {
               <Route path="/users/*" element={<UsersContainer />} />
               <Route path="/login/*" element={<LoginPageContainer />} />
             </Routes>
-          </Suspense>
         </div>
       </div>
     );

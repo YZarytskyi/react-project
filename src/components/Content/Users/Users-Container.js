@@ -3,7 +3,7 @@ import {setCurrentPage, toggleFollow, setTotalItemsCount,
   toggleIsFollowingProgress, requestUsers, follow, unfollow} from "../../../Redux/Reducers/users-reducer";
 import React from "react";
 import Users from "./Users";
-import Preloader from "../../Common/Preloader/Preloader";
+// import Preloader from "../../Common/Preloader/Preloader";
 import { withAuthRedirect } from "../../../HOC/withAuthRedirect";
 import { compose } from "redux";
 import { getCurrentPage, getFollow, getFollowingInProgress, getIsFetching, getPageSize, gettotalItemsCount, getUnfollow, getUsers } from "../../../Redux/Reducers/users-selectors";

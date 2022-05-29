@@ -8,7 +8,7 @@ const Users = (props) => {
     <div className={style.findUsers}>
       {props.users.map(user => (
         <div key={user.id} className={style.user}>
-          <div id={style.userPhoto}>
+          <div className={style.userPhoto}>
             <div>
             <NavLink to={/profile/ + user.id}>
               <img
@@ -29,7 +29,7 @@ const Users = (props) => {
               </button>
             </div>
           </div>
-          <div id={style.userInfo}>
+          <div className={style.userInfo}>
             <div>
               <div>{user.name}</div>
               <div>{user.status ? user.status : "I like React!"}</div>
