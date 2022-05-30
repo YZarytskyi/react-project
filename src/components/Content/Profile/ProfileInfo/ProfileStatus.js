@@ -24,7 +24,7 @@ const ProfileStatus = (props) => {
   }
 
   return (
-    <div className={style.status}>
+    <div className={style.status} >
     {!editMode
     ?
     <div>

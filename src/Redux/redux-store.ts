@@ -9,7 +9,7 @@ import appReducer from "./Reducers/app-reducer";
 import { composeWithDevTools } from '@redux-devtools/extension';
 
 
-let reducers = combineReducers({
+let reducer = combineReducers({
   profilePage: profileReducer,
   dialogsPage: dialogsReducer,
   sideBar: sideBarReducer,
@@ -18,11 +18,14 @@ let reducers = combineReducers({
   app: appReducer,
 })
 
+type ReducerType = typeof reducer
+export type AppStateType = ReturnType<ReducerType>
+
 const composeEnhancers = composeWithDevTools;
-const store = createStore(reducers, composeEnhancers(
+const store = createStore(reducer, composeEnhancers(
   applyMiddleware(thunkMiddleware)
 ));
-
+//@ts-ignore
 window.store = store
 
-export default store;
+export default store

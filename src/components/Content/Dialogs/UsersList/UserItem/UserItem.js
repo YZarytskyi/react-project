@@ -1,7 +1,7 @@
 import { NavLink } from "react-router-dom";
-import style from "./User.module.css";
+import style from "./UserItem.module.css";
 
-const User = (props) => {
+const UserItem = (props) => {
   let path = '/dialogs/' + props.id;
   return (
     <nav className={style.user}>
@@ -12,4 +12,4 @@ const User = (props) => {
   );
 };
 
-export default User;
+export default UserItem;

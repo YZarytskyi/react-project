@@ -1,29 +1,36 @@
-import style from "./Users.module.css";
-import userPhoto from "../../../assets/images/userPhoto.jpg";
+import React from 'react';
+import style from "../Users.module.css";
 import { NavLink } from "react-router-dom";
-import Paginator from "./Paginator";
+import UserPhoto from "../../../../assets/images/userPhoto.jpg"
 
-const Users = (props) => {
+type PropsType = { 
+  user: any
+  followingInProgress: Array<number>
+  key: number
+  follow: (userId: number) => void
+  unfollow: (userId: number) => void
+  toggleFollow: (userId: number) => void
+}
+const User: React.FC<PropsType> = ({user, unfollow, follow, followingInProgress,  ...props}) => {
   return (
-    <div className={style.findUsers}>
-      {props.users.map(user => (
+    <>
         <div key={user.id} className={style.user}>
           <div className={style.userPhoto}>
             <div>
             <NavLink to={/profile/ + user.id}>
               <img
-                src={user.photos.small ? user.photos.small : userPhoto}
+                src={user.photos.small ? user.photos.small : UserPhoto}
                 alt=""
               />
               </NavLink>
             </div>
             <div>
-              <button disabled={props.followingInProgress.some(id => id === user.id)} onClick={() => {
+              <button disabled={followingInProgress.some(id => id === user.id)} onClick={() => {
                 user.followed
                 ? 
-                props.unfollow(user.id)
+                unfollow(user.id)
                 : 
-                props.follow(user.id)
+                follow(user.id)
                 }}>
                 {user.followed ? "Unfollow" : "Follow"}
               </button>
@@ -40,11 +47,8 @@ const Users = (props) => {
             </div>
           </div>
         </div>
-      ))}
-        <Paginator totalItemsCount={props.totalItemsCount} pageSize={props.pageSize} 
-        onPageChange={props.onPageChange} currentPage={props.currentPage} />
-    </div>
+    </>
   );
 };
 
-export default Users;
+export default User;
