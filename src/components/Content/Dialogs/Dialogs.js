@@ -1,13 +1,12 @@
 import style from "./Dialog.module.css";
-import MessagesContainer from "./Messages/Messages-Container";
+import Messages from "./Messages/Messages";
 import UsersListContainer from "./UsersList/UsersList-Container";
 
-const Dialogs = (props) => {
+const Dialogs = () => {
 
   return (
     <div className={style.dialog}>
-      <MessagesContainer />
-      <UsersListContainer />
+      <Messages />
     </div>
   );
 };

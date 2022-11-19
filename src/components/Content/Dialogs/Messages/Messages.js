@@ -1,23 +1,44 @@
 import Message from "./Message/Message";
 import style from "./Messages.module.css";
-import React from "react";
 import { SendMessageForm } from "../../../Common/Forms/SendMessageForm/SendMessageForm";
+import { useDispatch, useSelector } from "react-redux";
+import { useEffect, useRef } from "react";
+import { sendMessage, startMessagesListening, stopMessagesListening } from "../../../../Redux/Reducers/chat-reducer";
 
-const Messages = (props) => {
-  let messagesElements = props.dialogsPage.messages.map((mes) => {
-    return <Message message={mes.message} />;
-  });
+const Messages = () => {
+  const messages = useSelector((state) => state.chat.messages);
+  const dispatch = useDispatch();
 
-  let sendMessage = (values) => {
-    props.sendMessage(values.newMessageText)
+  const messagesRef = useRef(null);
+
+  useEffect(() => {
+    dispatch(startMessagesListening());
+
+    return () => {
+      dispatch(stopMessagesListening())
+    }
+  }, []);
+
+  useEffect(() => {
+    messagesRef.current?.lastElementChild.scrollIntoView({behavior: "smooth", block: "end"})
+  }, [messages]);
+
+  const sendMessageHandler = ({ message }) => {
+    dispatch(sendMessage(message))
   };
 
-  return (
-    <div>
-      <div className={style.messages}>{messagesElements}</div>
-        <SendMessageForm onSubmit={sendMessage}/>
-    </div>
-  );
+  if (messages.length) {
+    const messagesElements = messages.map((mes, i) => {
+      return <Message message={mes} key={i} />;
+    });
+
+    return (
+      <div className={style.messagesContainer}>
+        <div className={style.messages} ref={messagesRef}>{messagesElements}</div>
+        <SendMessageForm onSubmit={sendMessageHandler} />
+      </div>
+    );
+  }
 };
 
 export default Messages;

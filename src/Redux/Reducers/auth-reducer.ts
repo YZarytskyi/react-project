@@ -64,7 +64,7 @@ export const getAuthUserData = () => async (dispatch: any) => {
     }
 }
 
-type LoginDataType = {
+export type LoginDataType = {
   email: string
   password: string
   rememberMe: boolean

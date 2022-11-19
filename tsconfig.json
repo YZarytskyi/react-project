@@ -17,10 +17,8 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
-    "jsx": "react"
+    "jsx": "react-jsx"
   },
-  "include": [
-    "src/*"
-, "src/components/HOC"  ],
-  "exclude": ["node_modules", "build"]
+  "include": [ "src/*", "src/components/HOC", "custom.d.ts"  ],
+  "exclude": ["node_modules", "build"],
 }

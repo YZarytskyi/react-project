@@ -14,6 +14,6 @@ export const addPostSchema = yup.object().shape({
   });
 
 export const sendMessageSchema = yup.object().shape({
-    newMessageText: yup.string()
+    message: yup.string()
         .required("Enter something"),
   });

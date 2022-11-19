@@ -1,5 +1,5 @@
 import { connect } from "react-redux";
-import {toggleFollow, requestUsers, follow, unfollow} from "../../../Redux/Reducers/users-reducer";
+import {actions, requestUsers, follow, unfollow} from "../../../Redux/Reducers/users-reducer";
 import React from "react";
 import Users from "./Users";
 // import Preloader from "../../Common/Preloader/Preloader";
@@ -9,6 +9,8 @@ import { getCurrentPage, getFollowingInProgress, getIsFetching, getPageSize, get
 import Preloader from "../../Common/Preloader/Preloader";
 import { UsersType } from "../../../Types/types";
 import { AppStateType } from "../../../Redux/redux-store";
+
+let toggleFollow = actions.toggleFollow
 
 type MapStatePropsType = {
   users: Array<UsersType>

@@ -2,9 +2,10 @@
   margin-left: 150px;
   grid-area: n;
   font-size: 23px;
-  padding: 10px;
   padding-top: 20px;
-  height: 350px;
+  padding-right: 30px;
+  padding-left: 15px;
+  height: 200px;
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
   position: relative;
@@ -16,8 +17,8 @@
   display: flex;
   color: rgb(10, 26, 36);
   border-radius: 9px;
-  padding-top: 2px;
-  padding-bottom: 4px;
+  padding-right: 10px;
+  margin-bottom: 11px;
 }
 
 .items img {

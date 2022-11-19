@@ -1,19 +1,22 @@
 import React from "react";
 import style from "./SideBar.module.css";
 import { NavLink } from "react-router-dom";
-import FriendsContainer from "./Friends/Friends-Container";
 import Message from "../../assets/images/Message.png";
 import Profile from "../../assets/images/Profile.png";
-import Music from "../../assets/images/Music.png";
 import News from "../../assets/images/News.png";
 import Users from "../../assets/images/Users.png";
 import { connect } from "react-redux";
+import { AppStateType } from "../../Redux/redux-store";
 
-const SideBar = (props) => {
+type MapStateToProps = {
+  authorizedUserId: number | null;
+}
+
+const SideBar: React.FC<MapStateToProps> = ({authorizedUserId}) => {
   return (
     <div className={style.sidebar}>
       <nav>
-          <NavLink to={`/profile/${props.authorizedUserId}`} className={(navData) => navData.isActive 
+          <NavLink to={`/profile/${authorizedUserId}`} className={(navData) => navData.isActive 
           ? style.active : style.item}>
           <div className={style.items}>
             <span>
@@ -49,25 +52,12 @@ const SideBar = (props) => {
           <span>News</span>
          </div>
         </NavLink>
-
-        <NavLink to="/music" className={(navData) => navData.isActive ? style.active : style.item}>
-         <div className={style.items}>
-          <span>
-            <img src={Music} alt="" />
-          </span>
-          <span>Music</span>
-         </div>
-        </NavLink>
-
       </nav>
-      <div>
-        <FriendsContainer />
-      </div>
     </div>
   );
 };
 
-const mapStateToProps = (state) => {
+const mapStateToProps = (state: AppStateType) => {
   return { authorizedUserId: state.auth.userId }
 }
 

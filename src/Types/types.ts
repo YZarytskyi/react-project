@@ -34,3 +34,10 @@ export type UsersType = {
   photos: PhotosType
   followed: boolean
 }
+
+export type WsMessage = {
+  message: string,
+  photo: string,
+  userId: number,
+  userName: string,
+}

@@ -1,4 +1,10 @@
+.messagesContainer {
+  width: 100%;
+}
+
 .messages {
+  max-height: 500px;
+  width: 100%;
   font-size: 20px;
-  grid-area: m;
+  overflow-y: auto;
 }

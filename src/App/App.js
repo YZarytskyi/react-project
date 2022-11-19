@@ -9,12 +9,12 @@ import React from "react";
 import { connect } from "react-redux";
 import { initializeApp } from "../Redux/Reducers/app-reducer";
 import Preloader from "../components/Common/Preloader/Preloader";
-import DialogsContainer from "../components/Content/Dialogs/Dialogs-Container";
+import Dialogs from "../components/Content/Dialogs/Dialogs";
 import News from "../components/Content/News/News"
 
 class App extends React.Component {
 
-  catchAllUnhandledErrors = (reason, promise) => {
+  catchAllUnhandledErrors = () => {
     alert("Some error occurred")
   }
 
@@ -42,7 +42,7 @@ class App extends React.Component {
               <Route path="/*" element={<ProfileContainer />} />
               <Route path="/profile/:userId" element={<ProfileContainer />} />
               <Route path="/profile/*" element={<ProfileContainer />} />
-              <Route path="/dialogs/*" element={<DialogsContainer />} />
+              <Route path="/dialogs/*" element={<Dialogs />} />
               <Route path="/users/*" element={<UsersContainer />} />
               <Route path="/login/*" element={<LoginPageContainer />} />
               <Route path="/news/*" element={<News />} />
